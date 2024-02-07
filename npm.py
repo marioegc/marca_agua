@@ -43,7 +43,7 @@ def agrega_marca(archivo_video, texto, output_path):
         for j in range(0, video_height, height):
             watermark.paste(img, (i, j))
 
-    watermark.save("watermark.png")
+    watermark.save("/static/watermark.png")
 
     # Paso 3: Superponer la imagen de marca de agua en el video
     #watermark_clip = ImageClip("watermark.png").set_duration(video.duration).set_opacity(0.5)
@@ -53,7 +53,7 @@ def agrega_marca(archivo_video, texto, output_path):
 
 def ejecutar_ffmpeg(archivo_video, output_path):
     #ffmpeg -i A_22074.mp4 -i watermark.png -filter_complex "[0:v][1:v]blend=all_mode='overlay':all_opacity=0.7[v]; [v]format=yuv420p"  -c:v h264_nvenc -c:a copy output.mp4
-    cmd1 = "ffmpeg -i " + archivo_video + " -i watermark.png -filter_complex \"[0:v][1:v]blend=all_mode='overlay':all_opacity=0.7[v]; [v]format=yuv420p\"  -c:v h264_nvenc -c:a copy /destino" + sama
+    cmd1 = "ffmpeg -i " + archivo_video + " -i /static/watermark.png -filter_complex \"[0:v][1:v]blend=all_mode='overlay':all_opacity=0.7[v]; [v]format=yuv420p\"  -c:v h264_nvenc -c:a copy /destino" + sama
     os.system(cmd1)
     return None
 
