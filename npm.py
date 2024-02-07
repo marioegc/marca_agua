@@ -55,6 +55,7 @@ def ejecutar_ffmpeg(archivo_video, output_path):
     #ffmpeg -i A_22074.mp4 -i watermark.png -filter_complex "[0:v][1:v]blend=all_mode='overlay':all_opacity=0.7[v]; [v]format=yuv420p"  -c:v h264_nvenc -c:a copy output.mp4
     cmd1 = "ffmpeg -i " + archivo_video + " -i /static/watermark.png -filter_complex \"[0:v][1:v]blend=all_mode='overlay':all_opacity=0.7[v]; [v]format=yuv420p\"  -c:v h264_nvenc -c:a copy /destino/" + sama
     os.system(cmd1)
+    print (output_path)
     return None
 
 
@@ -62,5 +63,7 @@ def ejecutar_ffmpeg(archivo_video, output_path):
 sama= create_nombre_video(archivo_video, texto)
 agrega_marca(archivo_video, texto, sama )
 ejecutar_ffmpeg(archivo_video, sama)
+print (sama)
+
 
 
