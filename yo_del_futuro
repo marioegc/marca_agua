@@ -15,3 +15,46 @@ docker run --rm --runtime=nvidia --gpus 'device=0'  -e NVIDIA_VISIBLE_DEVICES=al
 # docker build no cache
 
 docker build --no-cache -t marioegc/marca_agua:01 .
+
+
+-----PROMP---
+
+Quiero que me ayudes a realizar un proyecto en flask y que teng bootstrap para una mejor apariencia que realice operaciones la consulta, busqueda, edición y alta de trareas realacionadas con procesamiento de copias. 
+
+A continuación te describo los campos que tengo en mi base de datos MySQL 
+
+id
+fecha_encolamiento
+fecha_inicio
+fecha_fin
+archivo
+folder
+worker
+estado
+error
+texto
+archivo_copia
+id_audiencia_j360
+
+Me gustaria en primer lugar que realicemos una consulta de todos los registros que tengan el el campo folder=200 y que muestre los siguientes campos unicamente (primero te describire el campo en la base de datos y en seguida la leyenda del grid:
+
+id =  ID Trabajo
+id_audiencia_j360 =  ID Justicia 360
+texto = Texto
+estado = Estado
+archivo_copia = Archivo copia.
+
+Me gustaria que se ordenaran de forma ascendente a partir del campo id y que tenga paginación de 10 en 10 elementos. 
+
+Que tenga un filtro para buscar por id_audiencia_j360 o bien una opción de busqueda por este campo
+
+Que se pueda descargar el  video tomando como liga de descarga http://1.1.1.1:5001/descarga/  archivo_copia
+
+Que permita agregar un nuevo registro especificando el id_audiencia_j360  y el texto, para que inserte en la base de datos: fecha_enolamiento, archivo (id_audiencia_j360), 
+
+
+Edición
+
+
+
+
