@@ -56,5 +56,5 @@ Que permita agregar un nuevo registro especificando el id_audiencia_j360  y el t
 Edición
 
 
-
+docker run --rm --runtime=nvidia --gpus 'device=0'  -e NVIDIA_VISIBLE_DEVICES=all  -e NVIDIA_DRIVER_CAPABILITIES=compute,utility,video -v /home/mqt-transcrip/marca:/app -v /copias:/destino marioegc/marca_agua:01 python3 npm.py A_22074.mp4 "no pinches mames"
 
