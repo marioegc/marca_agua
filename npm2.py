@@ -54,8 +54,11 @@ def agrega_marca(archivo_video, texto, output_path):
     video_width, video_height = video.size
     watermark = Image.new('RGB', (video_width, video_height), (255, 255, 255))
 
+    # Definir un margen superior para la marca de agua
+    top_margin = 50  # Ajusta este valor según sea necesario
+
     for i in range(0, video_width, img_width):
-        for j in range(0, video_height, img_height):
+        for j in range(top_margin, video_height, img_height):  # Comenzar desde 'top_margin'
             watermark.paste(img, (i, j))
 
     watermark.save("/static/watermark.png")
