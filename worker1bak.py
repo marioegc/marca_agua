@@ -19,12 +19,10 @@ while True:
         folder = data["folder"]
         id = data["id"]
         texto = data["texto"]
-        copia = data["copia"]
         print("archivo:", archivo)
         print("folder:", folder)
         print("id:", id)
         print("texto:", texto)
-        print("copia:", copia)
 
         # Comparar si la carpeta es igual a 100
         if str(folder) == "100":
@@ -33,7 +31,7 @@ while True:
             RUTA2= str(FOLDER_TELEPRESENCIA)
 
             #armar el nombre del archivo
-            ARCHIVO = archivo + ".mp4"
+            ARCHIVO = archivo
 
             comando = "sudo docker run --rm  --gpus 'device=0'  -v {}:/app marioegc/arigato:01 sh /arigato/run.sh {}".format(str(RUTA2), str(ARCHIVO))
             print (comando)
@@ -42,9 +40,9 @@ while True:
             url2 = "http://{}:5000/finaliza?id={}".format(SERVIDOR, str(id))
             response = requests.get(url2)
 
-        elif str(folder) == 1:
+        elif str(folder) == "200":
             print("entramos al proceso")
-            RUTA= "/IAXON-" + str(folder)
+            RUTA= "/IAXON-1"
             print(RUTA)
             ARCHIVO_M = str(archivo)
             print(ARCHIVO_M)
@@ -52,7 +50,7 @@ while True:
             TEXTO_MARCA_AGUA = str(texto)
             print(TEXTO_MARCA_AGUA)
             print("paso3")
-            comando = "sudo docker run --rm --runtime=nvidia --gpus 'device=0'  -e NVIDIA_VISIBLE_DEVICES=all  -e NVIDIA_DRIVER_CAPABILITIES=compute,utility,video -v " +  RUTA+":/app -v /copias:/destino marioegc/marca_agua:03 python3 /static/npm2.py " + ARCHIVO_M + " " + '\"' + TEXTO_MARCA_AGUA + '\"'
+            comando = "sudo docker run --rm --runtime=nvidia --gpus 'device=0'  -e NVIDIA_VISIBLE_DEVICES=all  -e NVIDIA_DRIVER_CAPABILITIES=compute,utility,video -v " +  RUTA+":/app -v /copias:/destino marioegc/marca_agua:02 python3 /static/npm.py " + ARCHIVO_M + " " + '\"' + TEXTO_MARCA_AGUA + '\"'
             print(comando)
             
             proceso = subprocess.Popen(comando, stdout=subprocess.PIPE, shell=True)
@@ -90,7 +88,7 @@ while True:
             RUTA= "/IAXON-" + str(folder)
 
             #armar el nombre del archivo
-            ARCHIVO = archivo + ".mp4"
+            ARCHIVO = archivo
             #EJECUTA COMANDO
 
             comando = "sudo docker run --rm  --gpus 'device=0'  -v {}:/app marioegc/arigato:01 sh /arigato/run.sh {}".format(str(RUTA), str(ARCHIVO))
@@ -101,6 +99,5 @@ while True:
             response = requests.get(url2)
     except:
         pass
-
 
 

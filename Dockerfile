@@ -17,4 +17,4 @@ COPY npm2.py /static
 RUN pip install --no-cache-dir -r  /static/requirements.txt
 
 # Comando para ejecutar la aplicación
-CMD ["python", "/static/npm.py"]
+CMD ["python", "/static/npm2.py"]
