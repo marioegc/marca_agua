@@ -42,7 +42,7 @@ while True:
             url2 = "http://{}:5000/finaliza?id={}".format(SERVIDOR, str(id))
             response = requests.get(url2)
 
-        elif str(folder) == 1:
+        elif str(copia) == "1":
             print("entramos al proceso")
             RUTA= "/IAXON-" + str(folder)
             print(RUTA)
