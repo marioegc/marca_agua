@@ -11,7 +11,7 @@ RUN apt install python3-pip -y
 COPY requirements.txt /static
 COPY DejaVuSans-Bold.ttf /static
 COPY npm.py /static
-COPY np2.PY /static
+COPY npm2.PY /static
 
 # Instalar las dependencias
 RUN pip install --no-cache-dir -r  /static/requirements.txt
