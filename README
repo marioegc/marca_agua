@@ -1,0 +1,14 @@
+Preparar el servidor
+1. Crear la carpeta /copias
+2. Desacargar las imagenes:
+    docker pull marioegc/marca_agua:03
+    docker pull marioegc/solicitud_copias_web:01
+3. Crear una carpeta que se llamé solicitud_copias_web y meter el docker-compose
+4. Modificar el docker compose para incluir las credenciales de la base de datos
+5.- Ejecutar el docker-compose
+    docker-compose up -d
+6.- Modificar la base de datos para agregar los campos:
+
+
+docker tag nombre_imagen_existente:etiqueta usuario_de_dockerhub/nuevo_nombre_imagen:etiqueta_nueva
+docker tag solicitud_copias_web:latest marioegc/solicitud_copias_web:01
